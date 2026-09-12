@@ -1,0 +1,18 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+node-modules/
+
+# Agent local state & config backups
+.claude/settings.local.json
+*.bak
+*.bak-*
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
