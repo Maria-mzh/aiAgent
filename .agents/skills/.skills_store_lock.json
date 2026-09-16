@@ -1,0 +1,341 @@
+{
+  "version": 1,
+  "skills": {
+    "design-master": {
+      "name": "设计大师",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=design-master",
+      "source": "skillhub",
+      "version": "2.1.2"
+    },
+    "@user_865e3592/ui-new": {
+      "name": "UI设计Skill",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=ui-new&namespace=user_865e3592",
+      "source": "community",
+      "version": "1.0.0",
+      "namespace": {
+        "canonicalName": "@user_865e3592/ui-new",
+        "displayName": "user_865e3592",
+        "handle": "user_865e3592",
+        "publicSlug": "ui-new"
+      },
+      "internalSlug": "ui-new",
+      "publicSlug": "ui-new",
+      "installDir": "D:\\Maria\\aiAgent\\.agents\\skills\\@user_865e3592\\ui-new"
+    },
+    "@tencent-adm/ui-design-guide": {
+      "name": "腾讯云 CloudBase UI 设计 / Tencent CloudBase UI Design",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=ui-design-guide&namespace=tencent-adm",
+      "source": "enterprise",
+      "version": "2.26.0",
+      "namespace": {
+        "canonicalName": "@tencent-adm/ui-design-guide",
+        "displayName": "tencent-adm",
+        "handle": "tencent-adm",
+        "publicSlug": "ui-design-guide"
+      },
+      "internalSlug": "ui-design-guide",
+      "publicSlug": "ui-design-guide",
+      "installDir": "D:\\Maria\\aiAgent\\.agents\\skills\\@tencent-adm\\ui-design-guide"
+    },
+    "@user_63ec394d/finesse-ui": {
+      "name": "finesse-ui",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=finesse-ui&namespace=user_63ec394d",
+      "source": "community",
+      "version": "0.20.0",
+      "namespace": {
+        "canonicalName": "@user_63ec394d/finesse-ui",
+        "displayName": "user_63ec394d",
+        "handle": "user_63ec394d",
+        "publicSlug": "finesse-ui"
+      },
+      "internalSlug": "finesse-ui",
+      "publicSlug": "finesse-ui",
+      "installDir": "D:\\Maria\\aiAgent\\.agents\\skills\\@user_63ec394d\\finesse-ui"
+    },
+    "@user_800d68d6/color-toolkit-turn": {
+      "name": "color-toolkit-turn",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=color-toolkit-turn&namespace=user_800d68d6",
+      "source": "community",
+      "version": "3.4.0",
+      "namespace": {
+        "canonicalName": "@user_800d68d6/color-toolkit-turn",
+        "displayName": "user_800d68d6",
+        "handle": "user_800d68d6",
+        "publicSlug": "color-toolkit-turn"
+      },
+      "internalSlug": "color-toolkit-turn",
+      "publicSlug": "color-toolkit-turn",
+      "installDir": "D:\\Maria\\aiAgent\\.agents\\skills\\@user_800d68d6\\color-toolkit-turn"
+    },
+    "@maddiedreese/figma": {
+      "name": "Figma",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=figma&namespace=maddiedreese",
+      "source": "clawhub",
+      "version": "2.1.0",
+      "namespace": {
+        "canonicalName": "@maddiedreese/figma",
+        "displayName": "maddiedreese",
+        "handle": "maddiedreese",
+        "publicSlug": "figma"
+      },
+      "internalSlug": "figma",
+      "publicSlug": "figma",
+      "installDir": "D:\\Maria\\aiAgent\\.agents\\skills\\@maddiedreese\\figma"
+    },
+    "@user_04fe3e31/miniprogram-ui-ux-design": {
+      "name": "小程序ui ux 设计技能",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=miniprogram-ui-ux-design&namespace=user_04fe3e31",
+      "source": "community",
+      "version": "1.0.1",
+      "namespace": {
+        "canonicalName": "@user_04fe3e31/miniprogram-ui-ux-design",
+        "displayName": "user_04fe3e31",
+        "handle": "user_04fe3e31",
+        "publicSlug": "miniprogram-ui-ux-design"
+      },
+      "internalSlug": "miniprogram-ui-ux-design",
+      "publicSlug": "miniprogram-ui-ux-design",
+      "installDir": "E:\\aiAgent\\.agents\\skills\\@user_04fe3e31\\miniprogram-ui-ux-design"
+    },
+    "@user_8ec29dbe/frontend-design-optimizer": {
+      "name": "前端设计优化skill",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=frontend-design-optimizer&namespace=user_8ec29dbe",
+      "source": "community",
+      "version": "1.0.1",
+      "namespace": {
+        "canonicalName": "@user_8ec29dbe/frontend-design-optimizer",
+        "displayName": "user_8ec29dbe",
+        "handle": "user_8ec29dbe",
+        "publicSlug": "frontend-design-optimizer"
+      },
+      "internalSlug": "frontend-design-optimizer",
+      "publicSlug": "frontend-design-optimizer",
+      "installDir": "E:\\aiAgent\\.agents\\skills\\@user_8ec29dbe\\frontend-design-optimizer"
+    },
+    "@tencent-adm/wxa-skills-generate": {
+      "name": "微信小程序AI开发模式生成Skills",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=wxa-skills-generate&namespace=tencent-adm",
+      "source": "enterprise",
+      "version": "0.2.3",
+      "namespace": {
+        "canonicalName": "@tencent-adm/wxa-skills-generate",
+        "displayName": "tencent-adm",
+        "handle": "tencent-adm",
+        "publicSlug": "wxa-skills-generate"
+      },
+      "internalSlug": "wxa-skills-generate",
+      "publicSlug": "wxa-skills-generate",
+      "installDir": "E:\\aiAgent\\.agents\\skills\\@tencent-adm\\wxa-skills-generate"
+    },
+    "@tencent-adm/wxa-skills-validate": {
+      "name": "微信小程序AI开发模式校验Skills",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=wxa-skills-validate&namespace=tencent-adm",
+      "source": "enterprise",
+      "version": "0.2.3",
+      "namespace": {
+        "canonicalName": "@tencent-adm/wxa-skills-validate",
+        "displayName": "tencent-adm",
+        "handle": "tencent-adm",
+        "publicSlug": "wxa-skills-validate"
+      },
+      "internalSlug": "wxa-skills-validate",
+      "publicSlug": "wxa-skills-validate",
+      "installDir": "E:\\aiAgent\\.agents\\skills\\@tencent-adm\\wxa-skills-validate"
+    },
+    "@user_27ccabd4/frontend-spec": {
+      "name": "前端开发规范",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=frontend-spec&namespace=user_27ccabd4",
+      "source": "community",
+      "version": "1.0.0",
+      "namespace": {
+        "canonicalName": "@user_27ccabd4/frontend-spec",
+        "displayName": "user_27ccabd4",
+        "handle": "user_27ccabd4",
+        "publicSlug": "frontend-spec"
+      },
+      "internalSlug": "frontend-spec",
+      "publicSlug": "frontend-spec",
+      "installDir": "E:\\aiAgent\\.agents\\skills\\@user_27ccabd4\\frontend-spec"
+    },
+    "@user_fbf2a1f5/ys-agent": {
+      "name": "前端开发",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=ys-agent&namespace=user_fbf2a1f5",
+      "source": "community",
+      "version": "1.0.0",
+      "namespace": {
+        "canonicalName": "@user_fbf2a1f5/ys-agent",
+        "displayName": "user_fbf2a1f5",
+        "handle": "user_fbf2a1f5",
+        "publicSlug": "ys-agent"
+      },
+      "internalSlug": "ys-agent",
+      "publicSlug": "ys-agent",
+      "installDir": "E:\\aiAgent\\.agents\\skills\\@user_fbf2a1f5\\ys-agent"
+    },
+    "@user_24c316b5/figma-to-html": {
+      "name": "figma转高保真html",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=figma-to-html&namespace=user_24c316b5",
+      "source": "community",
+      "version": "1.0.0",
+      "namespace": {
+        "canonicalName": "@user_24c316b5/figma-to-html",
+        "displayName": "user_24c316b5",
+        "handle": "user_24c316b5",
+        "publicSlug": "figma-to-html"
+      },
+      "internalSlug": "figma-to-html",
+      "publicSlug": "figma-to-html",
+      "installDir": "E:\\aiAgent\\.agents\\skills\\@user_24c316b5\\figma-to-html"
+    },
+    "@user_7e8319e3/ai-prototype-design": {
+      "name": "AI+原型设计",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=ai-prototype-design&namespace=user_7e8319e3",
+      "source": "community",
+      "version": "1.0.0",
+      "namespace": {
+        "canonicalName": "@user_7e8319e3/ai-prototype-design",
+        "displayName": "user_7e8319e3",
+        "handle": "user_7e8319e3",
+        "publicSlug": "ai-prototype-design"
+      },
+      "internalSlug": "ai-prototype-design",
+      "publicSlug": "ai-prototype-design",
+      "installDir": "E:\\aiAgent\\.agents\\skills\\@user_7e8319e3\\ai-prototype-design"
+    },
+    "@kunlungrowth/kg-frontend-design": {
+      "name": "前端视觉设计",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=kg-frontend-design&namespace=kunlungrowth",
+      "source": "enterprise",
+      "version": "1.0.0",
+      "namespace": {
+        "canonicalName": "@kunlungrowth/kg-frontend-design",
+        "displayName": "kunlungrowth",
+        "handle": "kunlungrowth",
+        "publicSlug": "kg-frontend-design"
+      },
+      "internalSlug": "kg-frontend-design",
+      "publicSlug": "kg-frontend-design",
+      "installDir": "E:\\aiAgent\\.agents\\skills\\@kunlungrowth\\kg-frontend-design"
+    },
+    "@user_b2b4e2e7/design-app-ui-prototype": {
+      "name": "AppUI原型设计",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=design-app-ui-prototype&namespace=user_b2b4e2e7",
+      "source": "community",
+      "version": "1.0.0",
+      "namespace": {
+        "canonicalName": "@user_b2b4e2e7/design-app-ui-prototype",
+        "displayName": "user_b2b4e2e7",
+        "handle": "user_b2b4e2e7",
+        "publicSlug": "design-app-ui-prototype"
+      },
+      "internalSlug": "design-app-ui-prototype",
+      "publicSlug": "design-app-ui-prototype",
+      "installDir": "E:\\aiAgent\\.agents\\skills\\@user_b2b4e2e7\\design-app-ui-prototype"
+    },
+    "@zcwl/miniprogram-development": {
+      "name": "微信小程序开发",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=miniprogram-development&namespace=zcwl",
+      "source": "enterprise",
+      "version": "1.28.19",
+      "namespace": {
+        "canonicalName": "@zcwl/miniprogram-development",
+        "displayName": "zcwl",
+        "handle": "zcwl",
+        "publicSlug": "miniprogram-development"
+      },
+      "internalSlug": "miniprogram-development",
+      "publicSlug": "miniprogram-development",
+      "installDir": "E:\\aiAgent\\.agents\\skills\\@zcwl\\miniprogram-development"
+    },
+    "@tencent-adm/wechatide-skill": {
+      "name": "微信开发者工具 Skills",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=wechatide-skill&namespace=tencent-adm",
+      "source": "enterprise",
+      "version": "0.3.2",
+      "namespace": {
+        "canonicalName": "@tencent-adm/wechatide-skill",
+        "displayName": "tencent-adm",
+        "handle": "tencent-adm",
+        "publicSlug": "wechatide-skill"
+      },
+      "internalSlug": "wechatide-skill",
+      "publicSlug": "wechatide-skill",
+      "installDir": "E:\\aiAgent\\.agents\\skills\\@tencent-adm\\wechatide-skill"
+    },
+    "@kunlungrowth/kg-frontend-ui-engineering": {
+      "name": "前端UI工程",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=kg-frontend-ui-engineering&namespace=kunlungrowth",
+      "source": "enterprise",
+      "version": "1.0.0",
+      "namespace": {
+        "canonicalName": "@kunlungrowth/kg-frontend-ui-engineering",
+        "displayName": "kunlungrowth",
+        "handle": "kunlungrowth",
+        "publicSlug": "kg-frontend-ui-engineering"
+      },
+      "internalSlug": "kg-frontend-ui-engineering",
+      "publicSlug": "kg-frontend-ui-engineering",
+      "installDir": "E:\\aiAgent\\.agents\\skills\\@kunlungrowth\\kg-frontend-ui-engineering"
+    },
+    "@user_cc3f6cfc/product-prototype-design": {
+      "name": "快速生成高保真的产品交互原型1",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=product-prototype-design&namespace=user_cc3f6cfc",
+      "source": "community",
+      "version": "1.0.1",
+      "namespace": {
+        "canonicalName": "@user_cc3f6cfc/product-prototype-design",
+        "displayName": "user_cc3f6cfc",
+        "handle": "user_cc3f6cfc",
+        "publicSlug": "product-prototype-design"
+      },
+      "internalSlug": "product-prototype-design",
+      "publicSlug": "product-prototype-design",
+      "installDir": "E:\\aiAgent\\.agents\\skills\\@user_cc3f6cfc\\product-prototype-design"
+    },
+    "@user_3141f90e/figma2code": {
+      "name": "figma2code",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=figma2code&namespace=user_3141f90e",
+      "source": "community",
+      "version": "1.0.0",
+      "namespace": {
+        "canonicalName": "@user_3141f90e/figma2code",
+        "displayName": "user_3141f90e",
+        "handle": "user_3141f90e",
+        "publicSlug": "figma2code"
+      },
+      "internalSlug": "figma2code",
+      "publicSlug": "figma2code",
+      "installDir": "E:\\aiAgent\\.agents\\skills\\@user_3141f90e\\figma2code"
+    },
+    "@user_8f3f4407/prd-to-design-doc": {
+      "name": "产品prd转设计文档",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=prd-to-design-doc&namespace=user_8f3f4407",
+      "source": "community",
+      "version": "1.0.0",
+      "namespace": {
+        "canonicalName": "@user_8f3f4407/prd-to-design-doc",
+        "displayName": "user_8f3f4407",
+        "handle": "user_8f3f4407",
+        "publicSlug": "prd-to-design-doc"
+      },
+      "internalSlug": "prd-to-design-doc",
+      "publicSlug": "prd-to-design-doc",
+      "installDir": "E:\\aiAgent\\.agents\\skills\\@user_8f3f4407\\prd-to-design-doc"
+    },
+    "@user_df16bbeb/prd-to-tech-design": {
+      "name": "根据prd生成设计方案",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=prd-to-tech-design&namespace=user_df16bbeb",
+      "source": "community",
+      "version": "1.0.7",
+      "namespace": {
+        "canonicalName": "@user_df16bbeb/prd-to-tech-design",
+        "displayName": "user_df16bbeb",
+        "handle": "user_df16bbeb",
+        "publicSlug": "prd-to-tech-design"
+      },
+      "internalSlug": "prd-to-tech-design",
+      "publicSlug": "prd-to-tech-design",
+      "installDir": "E:\\aiAgent\\.agents\\skills\\@user_df16bbeb\\prd-to-tech-design"
+    }
+  }
+}

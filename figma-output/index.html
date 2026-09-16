@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test · iPhone 16 - 1</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F5F5F5;
+  }
+
+  .stage {
+    position: relative;
+    width: 100%;
+    max-width: 393px;
+    aspect-ratio: 393 / 852;
+    background: #FFFFFF;
+    overflow: hidden;
+  }
+
+  .shape { position: absolute; }
+  .shape--star { display: block; }
+
+  .shape--star-gold {
+    left: 18.3206%; top: 8.0986%;
+    width: 24.9364%; height: 10.9155%;
+  }
+  .shape--star-red {
+    left: 15.9033%; top: 21.9484%;
+    width: 9.4148%; height: 4.1080%;
+  }
+  .shape--star-green {
+    left: 34.2239%; top: 21.1268%;
+    width: 9.4148%; height: 4.1080%;
+  }
+  .shape--star-pink {
+    left: 48.7277%; top: 14.9061%;
+    width: 9.4148%; height: 4.1080%;
+  }
+
+  .shape--square {
+    left: 38.9313%; top: 70.0704%;
+    width: 11.7048%; height: 5.3991%;
+    background: #009951;
+  }
+
+  .shape--circle {
+    left: 55.7252%; top: 79.6948%;
+    width: 18.3206%; height: 8.4507%;
+    background: #8A226F;
+    border-radius: 50%;
+  }
+
+  @media (max-width: 480px) {
+    body { background: #FFFFFF; }
+    .stage { max-width: none; }
+  }
+</style>
+</head>
+<body>
+  <main class="stage" role="img" aria-label="由四颗五角星、一个绿色方块和一个紫色圆形组成的图形构成">
+    <img class="shape shape--star shape--star-gold"  src="images/icon-star-gold.svg"  alt="" aria-hidden="true" data-figma-node="1:4">
+    <img class="shape shape--star shape--star-red"   src="images/icon-star-red.svg"   alt="" aria-hidden="true" data-figma-node="1:12">
+    <img class="shape shape--star shape--star-green" src="images/icon-star-green.svg" alt="" aria-hidden="true" data-figma-node="1:16">
+    <img class="shape shape--star shape--star-pink"  src="images/icon-star-pink.svg"  alt="" aria-hidden="true" data-figma-node="1:20">
+    <div class="shape shape--square" aria-hidden="true" data-figma-node="1:31"></div>
+    <div class="shape shape--circle" aria-hidden="true" data-figma-node="1:24"></div>
+  </main>
+</body>
+</html>

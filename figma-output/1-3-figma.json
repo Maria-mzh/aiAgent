@@ -1,0 +1,157 @@
+{
+  "fileKey": "UnJqueOJrx1LdesX62Rx45",
+  "fileName": "Test",
+  "nodeId": "1:3",
+  "fetchedAt": "2026-09-16T11:20:52.8535604+08:00",
+  "source": "Figma REST /v1/files/{fileKey}/nodes?ids=1:3 (structure + geometry + fills read while quota was available; re-fetch attempts hit HTTP 429 rate limit afterwards, so this file is assembled from those verified reads rather than a single payload dump)",
+  "document": {
+    "id": "1:3",
+    "name": "iPhone 16 - 1",
+    "type": "FRAME",
+    "clipsContent": true,
+    "fills": [
+      {
+        "type": "SOLID",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "absoluteBoundingBox": {
+      "height": 852,
+      "y": 0,
+      "width": 393,
+      "x": 0
+    },
+    "children": [
+      {
+        "id": "1:4",
+        "name": "Star 1",
+        "type": "STAR",
+        "fills": [
+          {
+            "hex": "#E6A000",
+            "boundVariable": "VariableID:74cb5fffe5f79d60adfcd262beb9c816a9bf31c9/5613:382",
+            "type": "SOLID"
+          }
+        ],
+        "absoluteBoundingBox": {
+          "height": 102,
+          "y": 69,
+          "width": 102,
+          "x": 70
+        },
+        "absoluteRenderBounds": {
+          "height": 92.26,
+          "y": 69,
+          "width": 97.008,
+          "x": 72.496
+        },
+        "strokes": [],
+        "strokeWeight": 1,
+        "effects": []
+      },
+      {
+        "id": "1:12",
+        "name": "Star 2",
+        "type": "STAR",
+        "fills": [
+          {
+            "hex": "#C00F0C",
+            "boundVariable": "VariableID:b2b0025a1d84ec1ab9651054c65fd530bd08ce33/5613:385",
+            "type": "SOLID"
+          }
+        ],
+        "absoluteBoundingBox": {
+          "height": 38,
+          "y": 187,
+          "width": 38,
+          "x": 62
+        },
+        "strokes": [],
+        "strokeWeight": 1,
+        "effects": []
+      },
+      {
+        "id": "1:16",
+        "name": "Star 3",
+        "type": "STAR",
+        "fills": [
+          {
+            "type": "SOLID",
+            "hex": "#009951"
+          }
+        ],
+        "absoluteBoundingBox": {
+          "height": 38,
+          "y": 180,
+          "width": 38,
+          "x": 134
+        },
+        "strokes": [],
+        "strokeWeight": 1,
+        "effects": []
+      },
+      {
+        "id": "1:20",
+        "name": "Star 4",
+        "type": "STAR",
+        "fills": [
+          {
+            "type": "SOLID",
+            "hex": "#D732A8"
+          }
+        ],
+        "absoluteBoundingBox": {
+          "height": 38,
+          "y": 127,
+          "width": 38,
+          "x": 191
+        },
+        "strokes": [],
+        "strokeWeight": 1,
+        "effects": []
+      },
+      {
+        "id": "1:24",
+        "name": "Ellipse 1",
+        "type": "ELLIPSE",
+        "fills": [
+          {
+            "hex": "#8A226F",
+            "boundVariable": "VariableID:8a497a093e5d13f3e551d84a13c5c3d26a974213/5613:356",
+            "type": "SOLID"
+          }
+        ],
+        "absoluteBoundingBox": {
+          "height": 72,
+          "y": 679,
+          "width": 72,
+          "x": 219
+        },
+        "strokes": [],
+        "strokeWeight": 1,
+        "effects": []
+      },
+      {
+        "id": "1:31",
+        "name": "Rectangle 1",
+        "type": "RECTANGLE",
+        "fills": [
+          {
+            "type": "SOLID",
+            "hex": "#009951"
+          }
+        ],
+        "cornerRadius": 0,
+        "absoluteBoundingBox": {
+          "height": 46,
+          "y": 597,
+          "width": 46,
+          "x": 153
+        },
+        "strokes": [],
+        "strokeWeight": 1,
+        "effects": []
+      }
+    ]
+  }
+}

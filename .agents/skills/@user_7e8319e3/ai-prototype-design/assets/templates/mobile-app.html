@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile App Prototype</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #4F46E5;
+      --color-primary-hover: #4338CA;
+      --color-primary-light: #EEF2FF;
+      --color-secondary: #0EA5E9;
+      --color-bg: #FFFFFF;
+      --color-surface: #F8FAFC;
+      --color-surface-hover: #F1F5F9;
+      --color-text: #1E293B;
+      --color-text-muted: #64748B;
+      --color-border: #E2E8F0;
+      --color-success: #10B981;
+      --color-success-bg: #D1FAE5;
+      --color-warning: #F59E0B;
+      --color-warning-bg: #FEF3C7;
+      --color-error: #EF4444;
+      --color-error-bg: #FEE2E2;
+      --color-info: #3B82F6;
+      --color-info-bg: #DBEAFE;
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-2xl: 20px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+      --transition-fast: 150ms ease;
+      --transition-base: 200ms ease;
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-family);
+      background: #E2E8F0;
+      color: var(--color-text);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: var(--space-lg);
+    }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    /* ===== Phone Frame ===== */
+    .phone {
+      width: 390px;
+      height: 844px;
+      background: var(--color-bg);
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      border: 8px solid #1E293B;
+    }
+
+    /* ===== Status Bar ===== */
+    .status-bar {
+      height: 44px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 var(--space-lg);
+      font-size: 15px;
+      font-weight: 600;
+      background: var(--color-bg);
+      flex-shrink: 0;
+    }
+    .status-bar-right { display: flex; align-items: center; gap: var(--space-sm); }
+    .status-bar svg { width: 18px; height: 18px; }
+
+    /* ===== Screen Container ===== */
+    .screen {
+      flex: 1;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .screen.active { display: flex; }
+
+    /* ===== App Header ===== */
+    .app-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-md) var(--space-lg);
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+      flex-shrink: 0;
+    }
+    .app-header-title { font-size: 24px; font-weight: 700; }
+    .header-icon-btn {
+      width: 36px; height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-md);
+      color: var(--color-text-muted);
+    }
+    .header-icon-btn:hover { background: var(--color-surface); }
+    .header-icon-btn svg { width: 22px; height: 22px; }
+
+    /* ===== Scrollable Content ===== */
+    .app-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: var(--space-lg);
+      padding-bottom: 100px;
+    }
+
+    /* ===== Search ===== */
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+    .search-bar svg { width: 20px; height: 20px; color: var(--color-text-muted); }
+    .search-bar input {
+      border: none;
+      background: none;
+      outline: none;
+      font-family: inherit;
+      font-size: 15px;
+      flex: 1;
+      color: var(--color-text);
+    }
+
+    /* ===== Stories ===== */
+    .stories {
+      display: flex;
+      gap: var(--space-md);
+      overflow-x: auto;
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-sm);
+    }
+    .story {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-xs);
+      flex-shrink: 0;
+    }
+    .story-avatar {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      border: 3px solid var(--color-primary);
+      padding: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .story-avatar-inner {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      background: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 18px;
+    }
+    .story-label { font-size: 12px; color: var(--color-text-muted); }
+
+    /* ===== Feed Card ===== */
+    .feed-card {
+      background: var(--color-bg);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      margin-bottom: var(--space-lg);
+      border: 1px solid var(--color-border);
+    }
+    .feed-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-md);
+    }
+    .feed-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .feed-user { flex: 1; }
+    .feed-name { font-weight: 600; font-size: 14px; }
+    .feed-time { font-size: 12px; color: var(--color-text-muted); }
+    .feed-image {
+      width: 100%;
+      height: 250px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 48px;
+    }
+    .feed-actions {
+      display: flex;
+      gap: var(--space-md);
+      padding: var(--space-md);
+    }
+    .feed-action {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+    .feed-action svg { width: 22px; height: 22px; }
+    .feed-caption { padding: 0 var(--space-md) var(--space-md); font-size: 14px; }
+    .feed-caption strong { font-weight: 600; }
+
+    /* ===== Bottom Tabs ===== */
+    .bottom-tabs {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 83px;
+      background: var(--color-bg);
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding-bottom: 20px;
+    }
+    .tab-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      color: var(--color-text-muted);
+      font-size: 11px;
+      padding: var(--space-sm);
+    }
+    .tab-item.active { color: var(--color-primary); }
+    .tab-item svg { width: 26px; height: 26px; }
+    .tab-fab {
+      width: 56px; height: 56px;
+      background: var(--color-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      margin-top: -20px;
+      box-shadow: var(--shadow-md);
+    }
+    .tab-fab svg { width: 28px; height: 28px; }
+
+    /* ===== Profile Screen ===== */
+    .profile-header {
+      text-align: center;
+      padding: var(--space-xl) var(--space-lg);
+    }
+    .profile-avatar {
+      width: 96px; height: 96px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      margin: 0 auto var(--space-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 36px;
+      font-weight: 700;
+    }
+    .profile-name { font-size: 22px; font-weight: 700; margin-bottom: var(--space-xs); }
+    .profile-bio { font-size: 14px; color: var(--color-text-muted); margin-bottom: var(--space-lg); }
+    .profile-stats {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-2xl, 48px);
+      margin-bottom: var(--space-lg);
+    }
+    .profile-stat { text-align: center; }
+    .profile-stat-value { font-size: 20px; font-weight: 700; }
+    .profile-stat-label { font-size: 12px; color: var(--color-text-muted); }
+    .profile-actions { display: flex; gap: var(--space-sm); justify-content: center; }
+
+    /* ===== Button ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: 10px 20px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 500;
+      transition: all var(--transition-fast);
+    }
+    .btn-primary { background: var(--color-primary); color: white; }
+    .btn-primary:hover { background: var(--color-primary-hover); }
+    .btn-secondary { background: var(--color-surface); color: var(--color-text); border: 1px solid var(--color-border); }
+
+    /* ===== Notification Screen ===== */
+    .notif-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-md);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .notif-item:hover { background: var(--color-surface); }
+    .notif-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .notif-content { flex: 1; }
+    .notif-text { font-size: 14px; margin-bottom: 2px; }
+    .notif-text strong { font-weight: 600; }
+    .notif-time { font-size: 12px; color: var(--color-text-muted); }
+    .notif-dot { width: 10px; height: 10px; background: var(--color-primary); border-radius: 50%; flex-shrink: 0; }
+
+    /* ===== Explore Screen ===== */
+    .explore-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+    }
+    .explore-card {
+      border-radius: var(--radius-lg);
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 32px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="phone">
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <span>9:41</span>
+      <div class="status-bar-right">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+      </div>
+    </div>
+
+    <!-- Home Screen -->
+    <div class="screen active" id="screen-home">
+      <div class="app-header">
+        <h1 class="app-header-title">Feed</h1>
+        <button class="header-icon-btn" aria-label="Messages">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+        </button>
+      </div>
+      <div class="app-content">
+        <div class="search-bar">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="text" placeholder="Search...">
+        </div>
+        <div class="stories">
+          <div class="story">
+            <div class="story-avatar"><div class="story-avatar-inner" style="background:var(--color-primary)">+</div></div>
+            <span class="story-label">Your Story</span>
+          </div>
+          <div class="story">
+            <div class="story-avatar"><div class="story-avatar-inner" style="background:#EC4899">AC</div></div>
+            <span class="story-label">Alice</span>
+          </div>
+          <div class="story">
+            <div class="story-avatar"><div class="story-avatar-inner" style="background:#3B82F6">BL</div></div>
+            <span class="story-label">Bob</span>
+          </div>
+          <div class="story">
+            <div class="story-avatar"><div class="story-avatar-inner" style="background:#10B981">CW</div></div>
+            <span class="story-label">Carol</span>
+          </div>
+          <div class="story">
+            <div class="story-avatar"><div class="story-avatar-inner" style="background:#F59E0B">DZ</div></div>
+            <span class="story-label">Dan</span>
+          </div>
+        </div>
+        <div class="feed-card">
+          <div class="feed-header">
+            <div class="feed-avatar" style="background:#EC4899">AC</div>
+            <div class="feed-user">
+              <div class="feed-name">Alice Chen</div>
+              <div class="feed-time">2 hours ago</div>
+            </div>
+            <button class="header-icon-btn"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01"/></svg></button>
+          </div>
+          <div class="feed-image">📸</div>
+          <div class="feed-actions">
+            <div class="feed-action"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg><span>234</span></div>
+            <div class="feed-action"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg><span>56</span></div>
+            <div class="feed-action"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg></div>
+          </div>
+          <div class="feed-caption"><strong>Alice Chen</strong> Beautiful sunset at the beach today! 🌅 #nature #sunset</div>
+        </div>
+        <div class="feed-card">
+          <div class="feed-header">
+            <div class="feed-avatar" style="background:#3B82F6">BL</div>
+            <div class="feed-user">
+              <div class="feed-name">Bob Liu</div>
+              <div class="feed-time">5 hours ago</div>
+            </div>
+            <button class="header-icon-btn"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01"/></svg></button>
+          </div>
+          <div class="feed-image" style="background:linear-gradient(135deg,#10B981,#0EA5E9)">🏔️</div>
+          <div class="feed-actions">
+            <div class="feed-action"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg><span>512</span></div>
+            <div class="feed-action"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg><span>128</span></div>
+            <div class="feed-action"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg></div>
+          </div>
+          <div class="feed-caption"><strong>Bob Liu</strong> Hiking up the mountain trail. The view is worth every step!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Explore Screen -->
+    <div class="screen" id="screen-explore">
+      <div class="app-header">
+        <h1 class="app-header-title">Explore</h1>
+      </div>
+      <div class="app-content">
+        <div class="search-bar">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="text" placeholder="Search topics...">
+        </div>
+        <div class="explore-grid">
+          <div class="explore-card" style="background:linear-gradient(135deg,#4F46E5,#7C3AED)">Art</div>
+          <div class="explore-card" style="background:linear-gradient(135deg,#0EA5E9,#3B82F6)">Tech</div>
+          <div class="explore-card" style="background:linear-gradient(135deg,#10B981,#059669)">Nature</div>
+          <div class="explore-card" style="background:linear-gradient(135deg,#F59E0B,#EF4444)">Food</div>
+          <div class="explore-card" style="background:linear-gradient(135deg,#EC4899,#8B5CF6)">Fashion</div>
+          <div class="explore-card" style="background:linear-gradient(135deg,#6B7280,#1E293B)">Travel</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notifications Screen -->
+    <div class="screen" id="screen-notif">
+      <div class="app-header">
+        <h1 class="app-header-title">Activity</h1>
+      </div>
+      <div class="app-content">
+        <div class="notif-item">
+          <div class="notif-avatar" style="background:#EC4899">AC</div>
+          <div class="notif-content">
+            <div class="notif-text"><strong>Alice Chen</strong> liked your photo</div>
+            <div class="notif-time">2 min ago</div>
+          </div>
+          <div class="notif-dot"></div>
+        </div>
+        <div class="notif-item">
+          <div class="notif-avatar" style="background:#3B82F6">BL</div>
+          <div class="notif-content">
+            <div class="notif-text"><strong>Bob Liu</strong> started following you</div>
+            <div class="notif-time">15 min ago</div>
+          </div>
+          <div class="notif-dot"></div>
+        </div>
+        <div class="notif-item">
+          <div class="notif-avatar" style="background:#10B981">CW</div>
+          <div class="notif-content">
+            <div class="notif-text"><strong>Carol Wang</strong> commented: "Amazing!"</div>
+            <div class="notif-time">1 hour ago</div>
+          </div>
+        </div>
+        <div class="notif-item">
+          <div class="notif-avatar" style="background:#F59E0B">DZ</div>
+          <div class="notif-content">
+            <div class="notif-text"><strong>Dan Zhang</strong> mentioned you in a comment</div>
+            <div class="notif-time">3 hours ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Screen -->
+    <div class="screen" id="screen-profile">
+      <div class="app-header">
+        <h1 class="app-header-title">Profile</h1>
+        <button class="header-icon-btn" aria-label="Settings">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </button>
+      </div>
+      <div class="app-content">
+        <div class="profile-header">
+          <div class="profile-avatar">JD</div>
+          <div class="profile-name">John Doe</div>
+          <div class="profile-bio">Product Designer & Photographer 📸<br>San Francisco, CA</div>
+          <div class="profile-stats">
+            <div class="profile-stat">
+              <div class="profile-stat-value">248</div>
+              <div class="profile-stat-label">Posts</div>
+            </div>
+            <div class="profile-stat">
+              <div class="profile-stat-value">12.5K</div>
+              <div class="profile-stat-label">Followers</div>
+            </div>
+            <div class="profile-stat">
+              <div class="profile-stat-value">389</div>
+              <div class="profile-stat-label">Following</div>
+            </div>
+          </div>
+          <div class="profile-actions">
+            <button class="btn btn-primary">Edit Profile</button>
+            <button class="btn btn-secondary">Share</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Tabs -->
+    <nav class="bottom-tabs">
+      <button class="tab-item active" data-screen="screen-home">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Home
+      </button>
+      <button class="tab-item" data-screen="screen-explore">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        Search
+      </button>
+      <button class="tab-fab" aria-label="Create">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+      </button>
+      <button class="tab-item" data-screen="screen-notif">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+        Activity
+      </button>
+      <button class="tab-item" data-screen="screen-profile">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+        Profile
+      </button>
+    </nav>
+  </div>
+
+  <script>
+    // Tab navigation
+    document.querySelectorAll('.tab-item').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const screenId = tab.dataset.screen;
+        if (!screenId) return;
+        document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(screenId).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

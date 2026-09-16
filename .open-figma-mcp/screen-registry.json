@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "projectName": "乐淘牛官网",
+  "updatedAt": "2026-08-19T06:27:11.823Z",
+  "screens": [
+    {
+      "key": "contact",
+      "title": "Contact",
+      "index": 1,
+      "figmaNodeId": "43:574",
+      "figmaName": "01 Contact",
+      "pageId": "0:1",
+      "x": 10400,
+      "y": 0,
+      "width": 1440,
+      "height": 1240
+    },
+    {
+      "key": "footer",
+      "title": "Footer",
+      "index": 2,
+      "figmaNodeId": "43:575",
+      "figmaName": "02 Footer",
+      "pageId": "0:1",
+      "x": 12000,
+      "y": 0,
+      "width": 1440,
+      "height": 330
+    }
+  ]
+}
